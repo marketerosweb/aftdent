@@ -39,7 +39,27 @@ function yes($val){
     display: none;
   }
 </style>
-
+<script>function formulario(f) 
+{ 
+    if (f.oficina.value   == '') { alert ('field empty '); f.oficina.focus(); return false; } 
+    if (f.metal_precio.value  == '') { alert ('field empty'); f.metal_precio.focus(); return false; } 
+    if (f.clear_precio.value  == '') { alert ('field empty'); f.clear_precio.focus(); return false; } 
+    if (f.invasaling_precio.value  == '') { alert ('field empty'); f.invasaling_precio.focus(); return false; } 
+    if (f.acceledent_precio.value   == '') { alert ('field empty '); f.acceledent_precio.focus(); return false; } 
+    if (f.fase1_precio.value  == '') { alert ('field empty'); f.fase1_precio.focus(); return false; } 
+    if (f.acelerante.value  == '') { alert ('field empty'); f.acelerante.focus(); return false; } 
+    if (f.min_con_seguro.value  == '') { alert ('field empty'); f.min_con_seguro.focus(); return false; } 
+    if (f.min_sin_seguro.value   == '') { alert ('field empty '); f.min_sin_seguro.focus(); return false; } 
+    if (f.min_mensual.value  == '') { alert ('field empty'); f.min_mensual.focus(); return false; } 
+    if (f.mail.value  == '') { alert ('field empty'); f.mail.focus(); return false; } 
+    if (f.pie.value  == '') { alert ('field empty'); f.pie.focus(); return false; } 
+    if (f.metalBraces.value   == '') { alert ('field empty '); f.metalBraces.focus(); return false; } 
+    if (f.clearBrace.value  == '') { alert ('field empty'); f.clearBrace.focus(); return false; } 
+    if (f.Invasalig.value  == '') { alert ('field empty'); f.Invasalig.focus(); return false; } 
+    if (f.phase1.value  == '') { alert ('field empty'); f.phase1.focus(); return false; } 
+    return true; 
+} 
+</script>
 </head>
 
 <body>
@@ -102,7 +122,7 @@ function yes($val){
 </td>
 </tr>
 
-<form method="post" action="actionEdit.php">
+<form method="post" action="actionAdd.php" onsubmit="return formulario(this)">
 
 <tr>
 <tr> 
@@ -130,7 +150,8 @@ function yes($val){
 </tr>
 <tr>
 <td>
-<select>
+<select name="isAcceledent" id="isAcceledent">
+  <option value="">Select</option>
   <option value="1">Yes</option>
   <option value="0">No</option>
 </select>
@@ -190,20 +211,7 @@ function yes($val){
 </div>
 
 </div>
-<script src="js/jquery-1.12.3.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.dataTables.min.js"></script>
-  <script src="js/dataTables.bootstrap.js"></script>
-  <!--botones DataTables--> 
-  <script src="js/dataTables.buttons.min.js"></script>
-  <script src="js/buttons.bootstrap.min.js"></script>
-  <!--Libreria para exportar Excel-->
-  <script src="js/jszip.min.js"></script>
-  <!--Librerias para exportar PDF-->
-  <script src="js/pdfmake.min.js"></script>
-  <script src="js/vfs_fonts.js"></script>
-  <!--Librerias para botones de exportación-->
-  <script src="js/buttons.html5.min.js"></script>
+
 
 <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>

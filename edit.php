@@ -42,6 +42,29 @@ if(!isset($idUsuario)){
     display: none;
   }
 </style>
+   
+<script>function formulario(f) 
+{ 
+    if (f.oficina.value   == '') { alert ('field empty '); f.oficina.focus(); return false; } 
+    if (f.metal_precio.value  == '') { alert ('field empty'); f.metal_precio.focus(); return false; } 
+    if (f.clear_precio.value  == '') { alert ('field empty'); f.clear_precio.focus(); return false; } 
+    if (f.invasaling_precio.value  == '') { alert ('field empty'); f.invasaling_precio.focus(); return false; } 
+    if (f.acceledent_precio.value   == '') { alert ('field empty '); f.acceledent_precio.focus(); return false; } 
+    if (f.fase1_precio.value  == '') { alert ('field empty'); f.fase1_precio.focus(); return false; } 
+    if (f.acelerante.value  == '') { alert ('field empty'); f.acelerante.focus(); return false; } 
+    if (f.min_con_seguro.value  == '') { alert ('field empty'); f.min_con_seguro.focus(); return false; } 
+    if (f.min_sin_seguro.value   == '') { alert ('field empty '); f.min_sin_seguro.focus(); return false; } 
+    if (f.min_mensual.value  == '') { alert ('field empty'); f.min_mensual.focus(); return false; } 
+    if (f.mail.value  == '') { alert ('field empty'); f.mail.focus(); return false; } 
+    if (f.pie.value  == '') { alert ('field empty'); f.pie.focus(); return false; } 
+    if (f.metalBraces.value   == '') { alert ('field empty '); f.metalBraces.focus(); return false; } 
+    if (f.clearBrace.value  == '') { alert ('field empty'); f.clearBrace.focus(); return false; } 
+    if (f.Invasalig.value  == '') { alert ('field empty'); f.Invasalig.focus(); return false; } 
+    if (f.phase1.value  == '') { alert ('field empty'); f.phase1.focus(); return false; } 
+    return true; 
+} 
+</script>
+
 
 </head>
 
@@ -105,7 +128,7 @@ if(!isset($idUsuario)){
 </td>
 </tr>
 
-<form method="post" action="actionEdit.php">
+<form method="post" action="actionEdit.php" onsubmit="return formulario(this)">
 <input type="hidden" name="idSec" id="idSec" value="<?php echo $idUsuario ?>">
 <?php
 $sql = 'SELECT * FROM sucursales where id = '.$idUsuario;
@@ -140,7 +163,9 @@ foreach ($stmt as $office) {
 </tr>
 <tr>
 <td>
-<select>
+oscar
+<select name="isAcceledent">
+
   <?php 
     yes($office['is_acceledent']);
   ?>
@@ -172,24 +197,28 @@ foreach ($stmt as $office) {
         <th  width="25%">Clear Braces</th>
         <th  width="25%">Invisalign</th>
         <th  width="25%">Phase 1</th> 
-            <tr>
-          <td><input type="text" name="metalBraces" required="required"></td>
-          <td><input type="text" name="clearBrace"  required="required"></td>
-          <td><input type="text" name="Invasalig"  required="required"></td>
-          <td><input type="text" name="phase1"  required="required"></td>
-          </tr> 
+        
       </thead>
   
       <tbody>
       </tbody>
     </table>
+    <table class="grilla"  width="100%">
+        <tr>
+          <td><input type="text" name="metalBraces" ></td>
+          <td><input type="text" name="clearBrace"  ></td>
+          <td><input type="text" name="Invasalig" ></td>
+          <td><input type="text" name="phase1"></td>
+          </tr> 
+          </table>
+
   </td>
 </tr>
 <?php
 }
 ?>
 
-<tr> <td colspan="5"><input type="submit" value="Editar"></td></tr>
+<tr> <td colspan="5"><input type="submit" value="Edit"></td></tr>
 </form>
 </table>
 

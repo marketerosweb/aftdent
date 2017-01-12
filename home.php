@@ -30,7 +30,15 @@ function yes($val){
 <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen"> 
 <script type="text/javascript" src="jquery-1.11.3-jquery.min.js"></script>
 <link href="style.css" rel="stylesheet" media="screen">
-
+<script language="JavaScript"> 
+function confirmar()
+{
+  if(confirm('¿You are sure to delete this office?, This action will permanently delete all data'))
+    return true;
+  else
+    return false;
+}
+</script>
 </head>
 
 <body>
@@ -132,7 +140,7 @@ foreach ($stmt as $office) {
       </form>
   </td>
   <td>
-      <form method="get" action="delete.php"> 
+      <form method="post" action="actiondelete.php" onclick="return confirmar()" name="formDelete"> 
         <input type="hidden" name="idOffice" value="delete">
         <input type="hidden" name="idUsuario" value="<?php echo $office['id'] ?>">
         <input type="submit" value="Delete">
